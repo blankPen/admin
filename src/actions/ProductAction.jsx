@@ -3,7 +3,7 @@
  * @Date:   2016-11-11 14:59:24
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-14 09:32:05
+ * @Last Modified time: 2016-11-16 10:25:00
  */
 
 'use strict';
@@ -34,6 +34,28 @@ export function getSaleProductList(params, call) {
     }
 }
 
+// 获取下架商品列表
+export function getCloseShowList(params, call) {
+    return function(dispatch) {
+        ajax({
+            url: '/seller/sellerApi/productApi/closeShow',
+            data: params,
+            success: function(res) {
+                if (res.result == 1) {
+                    dispatch({
+                        type: 'get/product/closeshow/list',
+                        data: res.data[0]
+                    })
+                    call && call(res.data[0]);
+                } else {
+                    message.error(res.msg);
+                }
+            }
+        })
+    }
+}
+
+
 
 // 批量下架商品
 export function downProducts(ids, call) {
@@ -41,7 +63,7 @@ export function downProducts(ids, call) {
         ajax({
             url: '/seller/sellerApi/productApi/downProducts',
             data: {
-                goodsId: ids
+                ids: ids.join(',')
             },
             success: function(res) {
                 if (res.result == 1) {

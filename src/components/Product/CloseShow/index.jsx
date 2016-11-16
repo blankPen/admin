@@ -3,21 +3,17 @@
  * @Date:   2016-11-11 09:43:06
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-16 10:21:28
+ * @Last Modified time: 2016-11-16 10:43:51
  */
 
 'use strict';
-import './index.less';
 import React from 'react';
 import {
     connect
 } from 'react-redux';
 
 import {
-    getSaleProductList,
-    deleteProduct,
-    deleteProducts,
-    downProducts,
+    getCloseShowList,
 } from 'actions/ProductAction';
 import History from 'common/History';
 
@@ -42,11 +38,11 @@ function mapStateToProps({
     productState
 }) {
     return {
-        saleData: productState.saleData
+        data: productState.closeShowData
     };
 }
 
-export class SaleProduct extends React.Component {
+export class CloseShow extends React.Component {
     static propTypes = {
         name: React.PropTypes.string,
     };
@@ -74,35 +70,15 @@ export class SaleProduct extends React.Component {
     doSearch=()=>{
         this.setSearchValue('goodsName', this.state.searchName);
     }
-    handleMenuClick=(menu)=>{
-        let goodsIds = this.table.getSelectionRowKeys();
-        switch(menu.key){
-            case 'delete':
-                this.props.dispatch(deleteProducts(goodsIds,(res)=>{
-                    this.table.refresh();
-                }));
-                return;
-            case 'down':
-                this.props.dispatch(downProducts(goodsIds,this.table.refresh));
-                return;
-            case 'export':
-                return;
-        }
-    }
-    handleDelete=(row)=>{
-        this.props.dispatch(deleteProduct(row.goodsId,()=>{
-            this.table.refresh();
-        }));
-    }
     loadData=(params,call)=>{
-        this.props.dispatch(getSaleProductList(params, call));
+        this.props.dispatch(getCloseShowList(params, call));
     }
     renderGoodsClassSelect() {
         const { storeId,storeClassId } = this.state.searchData;
-        let saleData = this.props.saleData;
+        let data = this.props.data;
         let opts = [];
-        if (saleData.storeGoodsClassVoMap) {
-            let map = saleData.storeGoodsClassVoMap[0] || {};
+        if (data.storeGoodsClassVoMap) {
+            let map = data.storeGoodsClassVoMap[0] || {};
             Object.keys(map).forEach(key => {
                 let item = map[key][0];
                 opts.push(<Option key={item.parentId}>{item.parentName}</Option>);
@@ -119,33 +95,12 @@ export class SaleProduct extends React.Component {
         );
     }
     render() {
-        const { dataList,pageNo,pageSize,totalRows }= this.props.saleData;
+        const { dataList,pageNo,pageSize,totalRows }= this.props.data;
         return (
             <Page className='page-product-sale'>
-                <Page.Content key='1' tab='出售中商品'>
+                <Page.Content key='1' tab='下架商品'>
                     <div className="panel">
-                        <SearchBar
-                            rightContent={[
-                                <Dropdown key='batch'
-                                    overlay={
-                                        <Menu onClick={this.handleMenuClick}>
-                                            <Menu.Item key="delete">删除选中商品</Menu.Item>
-                                            <Menu.Item key="down">下架选中商品</Menu.Item>
-                                            <Menu.Item key="export">全部导出</Menu.Item>
-                                        </Menu>
-                                    }
-                                >
-                                    <Button type="ghost">
-                                      批量操作 <Icon type="down" />
-                                    </Button>
-                                </Dropdown>,
-                                <Button key='new'
-                                    type='primary'
-                                    onClick={()=>{History.push('/product/new')}}>
-                                    发布新商品
-                                </Button>,
-                            ]}
-                        >
+                        <SearchBar>
                             <InputGroup className='control-item w250'>
                                 <Input placeholder='商品名称'
                                     value={this.state.searchName}
@@ -171,10 +126,8 @@ export class SaleProduct extends React.Component {
                             searchData={this.state.searchData}
                             onLoad={this.loadData}
                             options={[
-                                { title:'查看',onClick:this.handleDelete },
-                                { title:'编辑',onClick:this.handleDelete },
-                                { title:'删除',onClick:this.handleDelete },
-                                { title:'修改组合',onClick:this.handleDelete },
+                                { title:'查看',onClick:this.checkProduct },
+                                { title:'上架',onClick:this.upProduct },
                             ]}
                         />
                     </div>
@@ -187,4 +140,4 @@ export class SaleProduct extends React.Component {
 export default connect(
     mapStateToProps,
     // Implement map dispatch to props
-)(SaleProduct)
+)(CloseShow)

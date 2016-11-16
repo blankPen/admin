@@ -3,7 +3,7 @@
  * @Date:   2016-10-17 19:40:58
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-14 14:39:59
+ * @Last Modified time: 2016-11-16 10:30:39
  */
 
 'use strict';
@@ -34,12 +34,13 @@ import Regist from 'components/Sign/Regist';
 
 import Home from 'components/Home';
 
-// 交易管理 TradeManager
+// 交易管理 Trade
 import SaleProduct from 'components/Product/Sale';
 import NewProduct from 'components/Product/New';
+import CloseShow from 'components/Product/CloseShow';
 
-// 交易管理 TradeManager
-import OrderList from 'components/TradeManager/OrderList';
+// 交易管理 Trade
+import OrderList from 'components/Trade/OrderList';
 
 import Cookie from "js-cookie";
 import History from 'common/History';
@@ -77,6 +78,7 @@ export class index extends React.Component {
                             <Route path='product'>
                                 <IndexRedirect to='sale' />
                                 <Route path='sale' component={SaleProduct}/>
+                                <Route path='closeShow' component={CloseShow}/>
                                 <Route path='new' component={NewProduct}/>
                             </Route>
                             <Route path='trade'>

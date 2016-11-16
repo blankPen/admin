@@ -23,6 +23,7 @@ export default handleActions({
             if(flag){
                 arr.push({ title: menu.title,path: menu.path });
             }
+            Cookie.set('menu-history',arr);
             return {
                 ...state,
                 historyIndex: arr,

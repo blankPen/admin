@@ -15,24 +15,24 @@ export default function(opt) {
         cache: 'false',
         ...opt,
     };
-    // if(opt.method == 'get'){
-    //     opt.data+=`&timestamp=${Date.now()}`;
-    //     opt.data+=`&sign=${encodeURIComponent(getSign(opt.data))}`;
-    // }else{
-    //     opt.data = opt.data || {};
-    //     opt.data.timestamp = Date.now();
-    //     opt.data.sign = getSign(opt.data);
-    // }
+    if(opt.method == 'get'){
+        // opt.data+=`&timestamp=${Date.now()}`;
+        opt.data+=`&sign=${encodeURIComponent(getSign(opt.data))}`;
+    }else{
+        opt.data = opt.data || {};
+        opt.data.timestamp = Date.now();
+        opt.data.sign = getSign(opt.data);
+    }
     opt.success = function(res){
-        if (res.result == 2) {
-            console.log("登录超时");
+        // if (res.result == 2) {
+            // console.log("登录超时");
             // store.dispatch(logout(function() {
             //     History.push('/login');
             // }, false));
             // message.error(res.msg);
-        } else {
+        // } else {
             call_succ && call_succ.call(this, res);
-        }
+        // }
     };
     reqwest(opt);
 }
