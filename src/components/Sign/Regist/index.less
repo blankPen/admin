@@ -1,0 +1,125 @@
+/*
+* @Author: pengzhen
+* @Date:   2016-11-09 15:52:53
+* @Last Modified by:   pengzhen
+* @Last Modified time: 2016-11-09 16:38:46
+*/
+@import url('../../../styles/theme.less');
+.page-regist {
+    .content{
+        width: 450px;
+    }
+    .top{
+        text-align: center;
+        padding: 20px 0;
+        font-size: 16px;
+        .title{
+            margin: 0 10px;
+            vertical-align: middle;
+            display: inline-block;
+            color: #999;
+            cursor: pointer;
+            &.active,&:hover{
+                color: #58666e;
+            }
+        }
+        .space-line{
+            width: 1px;
+            height: 1em;
+            background: #ddd;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    .submit-btn {
+        width: 100%;
+        cursor: pointer;
+        display: block;
+        border-radius: 4px;
+        height: 45px;
+        line-height: 45px;
+        letter-spacing: 4px;
+        padding: 0;
+        border: 0;
+        color: #fff;
+        background: @primary-color;
+        transition: all .1s;
+    }
+    .form-item {
+        width: 100%;
+        font-size: 14px;
+        outline: none;
+        margin-bottom: 0;
+        position: relative;
+        margin-bottom: 15px;
+        background: #fff;
+        .has-error .ant-input {
+            border: 1px solid @primary-color;
+        }
+        .ant-input {
+            border: 1px solid #dee5e7;
+            box-shadow: none;
+            height: 45px;
+            line-height: 45px;
+            border-radius: 4px;
+            padding-left: 80px;
+            position: relative;
+            z-index: 1;
+            text-indent: 1em;
+            background: transparent;
+        }
+        label {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            z-index: 3;
+            width: 80px;
+            margin-top: -7px;
+            line-height: 1em;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+            border-right: 1px solid #f0f0f0;
+        }
+    }
+    .item-invite{
+        margin-bottom: 40px;
+    }
+    .item-captcha {
+        margin-bottom: 0;
+        overflow: hidden;
+        .ant-input {
+            padding-right: 125px;
+        }
+        .get-code {
+            position: absolute;
+            right: 1px;
+            top: 1px;
+            border-radius: 0 4px 4px 0;
+            height: 43px;
+            line-height: 43px;
+            width: 120px;
+            z-index: 2;
+            background: #F1F1F1;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+    .error-msg {
+        line-height: 40px;
+        height: 40px;
+        color: @primary-color;
+    }
+    .control-box {
+        position: relative;
+        line-height: 24px;
+        margin-top: 15px;
+        .clearfix();
+        a{
+            color: @primary-color;
+        }
+        .fl-r {
+            float: right;
+        }
+    }
+}

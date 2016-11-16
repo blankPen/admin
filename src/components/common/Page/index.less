@@ -1,0 +1,49 @@
+/*
+* @Author: pengzhen
+* @Date:   2016-11-06 14:31:07
+* @Last Modified by:   pengzhen
+* @Last Modified time: 2016-11-09 15:27:37
+*/
+
+@import url('../../../styles/theme.less');
+.page {
+    color: #363f44;
+    padding-left: 20px;
+    padding-right: 20px;
+    .page-header {
+        height: 50px;
+        font-size: 14px;
+        line-height: 50px;
+        position: relative;
+        .tab {
+            display: inline-block;
+            line-height: normal;
+            cursor: pointer;
+            padding-right: 10px;
+            color: #999;
+            &.active{
+                color: #58666e;
+            }
+            .icon{
+                width: 14px;
+                display: inline-block;
+            }
+        }
+        .right-content{
+            float: right;
+            line-height: 50px;
+        }
+    }
+    .page-body {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .ant-spin{
+        color: @primary-color;
+        .ant-spin-dot{
+            &:after,&:before{
+                background: @primary-color;
+            }
+        }
+    }
+}

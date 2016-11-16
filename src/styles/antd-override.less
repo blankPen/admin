@@ -1,0 +1,206 @@
+/*
+* @Author: pengzhen
+* @Date:   2016-11-07 14:40:08
+* @Last Modified by:   pengzhen
+* @Last Modified time: 2016-11-15 17:46:05
+*/
+
+// input-group
+.ant-input-group{
+    .ant-input{
+        // border-right: none;
+    }
+    .ant-input-group-wrap{
+        &:first-child{
+            .ant-btn{
+                margin-right: -1px;
+            }
+        }
+        &:last-child{
+            .ant-btn{
+                margin-left: -1px;
+            }
+        }
+        .ant-btn{
+            border-radius: 0;
+            z-index: 2;
+            position: relative;
+            &:after{
+                content: none;
+            }
+        }
+    }
+}
+
+// Select
+.ant-select {
+    .ant-select-selection--single {
+        border-radius: 0;
+    }
+    .ant-select-selection:focus,
+    .ant-select-selection:active,
+    .ant-select-selection:hover,
+    .ant-select-focused .ant-select-selection,
+    &.ant-select-open .ant-select-selection {
+        border-color: @primary-color;
+        box-shadow: none;
+    }
+}
+
+
+.ant-select-dropdown {
+    border-radius: 0;
+}
+
+// .ant-select-dropdown-menu-item:hover,
+// .ant-select-dropdown-menu-item-active {
+//     background: fade(@primary-color, 10%);
+// }
+
+// DropDwon
+// @dropDownColor: #F47340;
+// .ant-dropdown-button {
+//     .ant-btn {
+//         border-radius: 0;
+//         color: #fff;
+//         background: @dropDownColor;
+//         border-color: @dropDownColor;
+//         outline: none;
+//         box-shadow: none;
+//         &,
+//         &.ant-btn-clicked {
+//             &:after {
+//                 content: none;
+//             }
+//             &,
+//             &:hover,
+//             &:active,
+//             &:focus {
+//                 color: #fff;
+//                 background: @dropDownColor;
+//                 border-color: @dropDownColor;
+//             }
+//         }
+//     }
+//     &.ant-btn-group > .ant-btn:last-child:not(:first-child) {
+//         border-left-color: darken(@dropDownColor, 10%);
+//         z-index: 3;
+//     }
+// }
+
+// .ant-dropdown-menu {
+//     border-radius: 0;
+//     .ant-dropdown-menu-item-active {
+//         border-radius: 0;
+//         background: fade(@dropDownColor, 10%);
+//     }
+// }
+
+// modal
+.ant-modal-content {
+    border-radius: 2px;
+    box-shadow: none;
+    .ant-modal-header {
+        border-top: 2px solid @primary-color;
+        border-radius: 2px 2px 0 0;
+    }
+    .ant-modal-footer {
+        .ant-btn{
+            font-size: 12px;
+            width: 90px;
+        }
+        .ant-btn-ghost {}
+        .ant-btn-primary {}
+    }
+}
+
+.ant-input {
+    border-radius: 0;
+    &:focus,
+    &:hover {
+        outline: none;
+        box-shadow: none;
+        border-color: #d9d9d9;
+    }
+}
+
+.ant-btn {
+    border-radius: 2px;
+}
+.ant-btn,
+.ant-btn.ant-btn-ghost {
+    color: #58666e;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(90, 90, 90, .1);
+    &:after {
+        content: none;
+    }
+    &.ant-btn-clicked,
+    &:hover,
+    &:focus {
+        background-color: #edf1f2;
+        border-color: #c7d3d6;
+        color: #58666e;
+    }
+}
+
+.ant-btn.ant-btn-primary{
+    color: #fff;
+    background-color: fade(#fd7a46,95%);
+    border-color: fade(#fd7a46,95%);
+    &:after {
+        content: none;
+    }
+    &.ant-btn-clicked,
+    &:hover,
+    &:focus {
+        background-color: @primary-color;
+        border-color: @primary-color;
+    }
+}
+// .ant-btn.ant-btn-primary.ant-btn-clicked{
+//     color: @font-active-color;
+//     background-color: @primary-color;
+//     border-color: @primary-color;
+//     outline: none;
+//     box-shadow: none;
+//     &:after {
+//         content: none;
+//     }
+//     &:hover,
+//     &:active,
+//     &:focus{
+//         color: @font-active-color;
+//         border-color: @primary-color;
+//     }
+// }
+// .ant-btn.ant-btn-ghost,
+// .ant-btn.ant-btn-ghost.ant-btn-clicked{
+//     background-color: #fff;
+//     outline: none;
+//     box-shadow: none;
+//     &:after {
+//         content: none;
+//     }
+//     &:hover,
+//     &:active,
+//     &:focus{
+//         color: @primary-color;
+//         border-color: @primary-color;
+//     }
+// }
+// .ant-btn,
+// .ant-btn.ant-btn-clicked{
+//     background-color: #fff;
+//     outline: none;
+//     box-shadow: none;
+//     &:after {
+//         content: none;
+//     }
+//     &:hover,
+//     &:active,
+//     &:focus{
+//         color: @primary-color;
+//         border-color: @primary-color;
+//     }
+// }

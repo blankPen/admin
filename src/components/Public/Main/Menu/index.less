@@ -1,0 +1,92 @@
+/*
+* @Author: pengzhen
+* @Date:   2016-11-05 17:09:05
+* @Last Modified by:   pengzhen
+* @Last Modified time: 2016-11-08 17:31:21
+*/
+
+@import url('../../../../styles/theme.less');
+.menu-wrap {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
+    .menu-list {
+        width: 85px;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+        background-color: #3a3f51;
+        color: #9ea4b9;
+        .menu-item:hover{
+            &>a {
+                background-color: #2e3444;
+                color: #fff;
+
+            }
+            .sub-menu-list{
+                display: block;
+            }
+        }
+
+        .menu-item{
+            position: relative;
+            &>a {
+                display: block;
+                width: 100%;
+                height: 54px;
+                line-height: 54px;
+                overflow: hidden;
+                transition: all 0.12s ease;
+                color: #aeb9c2;
+                text-align: center;
+                font-size: 14px;
+                .title {
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    display: inline-block;
+                    i{
+                        font-size: 1.2em;
+                        margin-left: -5px;
+                        margin-right: 2px;
+                    }
+                }
+            }
+        }
+    }
+    .sub-menu-list {
+        z-index: 50;
+        position: absolute;
+        top: 0;
+        left: 85px;
+        padding-left: 0;
+        display: none;
+        width: 340px;
+        height: auto;
+        background: #484C5C;
+        box-shadow: 2px 2px 3px #999;
+        overflow-y: auto;
+        transition: all .2s ease-in-out;
+        .sub-menu-item:hover a {
+            background: #3C4252;
+        }
+        .sub-menu-item a {
+            padding-left: 15px;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #5A6070;
+            display: block;
+            color: #CED1DB;
+            padding-bottom: 0;
+            text-align: left;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            transition: all 0.12s ease;
+        }
+    }
+}
