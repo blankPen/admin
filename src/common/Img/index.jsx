@@ -3,12 +3,12 @@
  * @Date:   2016-10-18 20:53:40
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-11 15:53:02
+ * @Last Modified time: 2016-11-16 13:59:04
  */
 
 'use strict';
 import React from 'react';
-import './Img/index.less';
+import './index.less';
 
 const IMG_SERVER = 'http://bbcimage.leimingtech.com/';
 
@@ -39,7 +39,7 @@ export default class Img extends React.Component {
         super(props);
     }
     hadleClick=(e)=>{
-        if(this.props.isShow){
+        if(this.props.preview){
             returnImg(getRealPath(this.props.src));
             if (e && e.stopPropagation) {
                 e.stopPropagation();
@@ -51,20 +51,13 @@ export default class Img extends React.Component {
     }
     render() {
         let props = {...this.props};
-        delete props.isShow;
+        delete props.preview;
         return (
             <img {...props} src={getRealPath(this.props.src)} onClick={this.hadleClick} />
         );
     }
 }
-/*
-const dom = document.createElement("div");
-appendChild(dom);
 
-ReactDOM.render(<M/>,dom)*/
-/*
-<i class="anticon anticon-close-circle "></i>
-*/
 function returnImg(url){
     var imgdiv = document.createElement("div");
     imgdiv.setAttribute("class","showImg");

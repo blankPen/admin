@@ -1,6 +1,6 @@
 require('normalize.css/normalize.css');
 require('styles/app.less');
-require('font-awesome-webpack');
+// require('font-awesome-webpack');
 
 import 'core-js/fn/object/assign';
 import 'common/polyfill'
