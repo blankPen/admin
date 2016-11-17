@@ -3,7 +3,7 @@
  * @Date:   2016-11-10 09:59:44
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-14 15:05:35
+ * @Last Modified time: 2016-11-17 11:05:13
  */
 
 'use strict';
@@ -19,7 +19,7 @@ export default class Tabs extends React.Component {
         super(props);
 
         if(this.props.activeKey !== undefined){
-            this.props.onChange || console.error("设置了activeKey必须设置onChange方法，让Tabs可控")
+            this.props.onChange || console.error("设置了activeKey必须设置onChange方法，让Tabs可控");
         }else{
             let active = undefined;
             if(props.defaultActiveKey !== undefined){
@@ -73,7 +73,27 @@ export default class Tabs extends React.Component {
             className
         } = this.props;
         const { tabs,contentMap } = this.getTabsAndContent();
-        const active = this.state.active;
+        let active = null;
+        if(this.props.activeKey !== undefined){
+            active = this.props.activeKey;
+        }else{
+            active = this.state.active;
+        }
+        let content;
+        if(this.props.displayHidden){
+            content = Object.keys(contentMap).map(key=>{
+                let style = {
+                    display: key == active ? 'block':'none'
+                };
+                return <div key={key} className="tab-content" style={style}>
+                    {contentMap[key]}
+                </div>
+            })
+        }else{
+            content = <div className="tab-content">
+                {contentMap[active]}
+            </div>;
+        }
         return (
             <div className="tabs-wrap">
                 <div className="tabs">
@@ -85,9 +105,7 @@ export default class Tabs extends React.Component {
                         </span>
                     })}
                 </div>
-                <div className="tab-content">
-                    {contentMap[active]}
-                </div>
+                {content}
             </div>
         );
     }

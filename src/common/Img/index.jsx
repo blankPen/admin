@@ -3,7 +3,7 @@
  * @Date:   2016-10-18 20:53:40
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-16 13:59:04
+ * @Last Modified time: 2016-11-16 15:16:22
  */
 
 'use strict';
@@ -12,7 +12,7 @@ import './index.less';
 
 const IMG_SERVER = 'http://bbcimage.leimingtech.com/';
 
-const reqWithContext = require.context('../images', true, /\.(png|jpg|gif)$/);
+const reqWithContext = require.context('../../images', true, /\.(png|jpg|gif)$/);
 
 export function getRealPath(src){
     if(src){

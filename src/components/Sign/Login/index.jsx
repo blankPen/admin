@@ -3,7 +3,7 @@
  * @Date:   2016-11-07 16:56:17
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-16 11:40:44
+ * @Last Modified time: 2016-11-17 16:05:52
  */
 
 'use strict';
@@ -99,6 +99,13 @@ class LoginForm extends React.Component {
                     if(res.result == 1){
                         this.setError(null);
                         History.push('/');
+                    }else if(res.result == 3){
+                        History.push({
+                            pathname: '/apply',
+                            state: {
+                                ...res.data
+                            }
+                        });
                     }else{
                         this.setState({
                             errorMsg: res.msg

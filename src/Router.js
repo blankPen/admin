@@ -3,7 +3,7 @@
  * @Date:   2016-10-17 19:40:58
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-16 10:30:39
+ * @Last Modified time: 2016-11-17 09:33:59
  */
 
 'use strict';
@@ -31,6 +31,7 @@ import DemoTabs from 'components/Demo/TabBar';
 import PublicMain from 'components/Public/Main';
 import Login from 'components/Sign/Login';
 import Regist from 'components/Sign/Regist';
+import ApplyStore from 'components/Sign/ApplyStore';
 
 import Home from 'components/Home';
 
@@ -73,6 +74,7 @@ export class index extends React.Component {
                         </Route>
                         <Route path='/login' component={Login} />
                         <Route path='/regist' component={Regist} />
+                        <Route path='/apply' component={ApplyStore} />
                         <Route path='/' component={PublicMain}>
                             <IndexRoute component={Home}/>
                             <Route path='product'>

@@ -3,7 +3,7 @@
  * @Date:   2016-11-07 16:56:17
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-16 11:35:52
+ * @Last Modified time: 2016-11-17 09:34:28
  */
 
 'use strict';
@@ -43,11 +43,10 @@ export class Regist extends React.Component {
         super(props);
     }
     handleSubmit = (values,call) => {
-        console.log(values);
         this.props.dispatch(regist(values,(res)=>{
             if(res.result == 1){
                 message.success(res.msg);
-                History.push('/');
+                History.push('/apply');
             }else{
                 call(res);
             }

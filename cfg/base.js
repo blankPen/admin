@@ -44,11 +44,11 @@ module.exports = {
         changeOrigin: true
       },
       '/seller/*':{
-        target:'http://bbc.leimingtech.com/',
+        target:'http://testbbc.leimingtech.com/',
         changeOrigin: true
       },
       '/sellerApi/*':{
-        target:'http://bbc.leimingtech.com/seller/',
+        target:'http://testbbc.leimingtech.com/seller/',
         changeOrigin: true
       }
     }

@@ -3,7 +3,7 @@
 * @Date:   2016-11-08 13:00:38
 * @Desc: this_is_desc
 * @Last Modified by:   pengzhen
-* @Last Modified time: 2016-11-09 17:36:46
+* @Last Modified time: 2016-11-17 14:44:06
 */
 
 'use strict';
@@ -74,6 +74,7 @@ VForm.Item = class extends React.Component {
     getOptions(props){
         return {
             valuePropName: props.valuePropName,
+            valueType: props.valueType,
             initialValue: props.initialValue,
             trigger: props.trigger,
             getValueFromEvent: props.getValueFromEvent,
@@ -246,6 +247,7 @@ Validator.getForm = function(form){
         getFieldDecorator(name,opts={}){
             const { getFieldDecorator } = form;
             let newRules = [];
+            let valueType = opts.valueType;
             opts.rules = opts.rules || {};
             if(opts.rules.ruleType){
                 opts.rules = {
@@ -259,6 +261,12 @@ Validator.getForm = function(form){
                 if(params) {
                     if(k == 'validator') {
                         newRules.push({ validator: params });
+                    }else if(k == 'required'){
+                        if(typeof params === 'string'){
+                            newRules.push({ required: true, message: params});
+                        }else{
+                            newRules.push({ required: !!params });
+                        }
                     }else{
                         let rule = Validator.getRule(k,params);
                         if(rule){
@@ -269,6 +277,12 @@ Validator.getForm = function(form){
                     }
                 }
             });
+            if(valueType){
+                newRules = newRules.map(r=>{
+                    r.type = valueType;
+                    return r;
+                });
+            }
             opts.rules = newRules;
             return getFieldDecorator(name,opts)
         }
