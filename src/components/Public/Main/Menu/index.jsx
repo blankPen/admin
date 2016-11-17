@@ -3,7 +3,7 @@
  * @Date:   2016-11-05 17:09:00
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-16 10:34:57
+ * @Last Modified time: 2016-11-17 17:35:27
  */
 
 'use strict';
@@ -51,16 +51,37 @@ export class Menu extends React.Component {
             </ul>
         )
     }
+    renderSubMenuChilds(data){
+        return (
+            <ul className='child-menu'>
+                {data.map((menu)=>{
+                    return <li className='child-menu-item'>
+                        <Link title={menu.title} to={menu.path}>{menu.title}</Link>
+                    </li>
+                })}
+            </ul>
+        )
+    }
     renderSubMenuList(data = []){
         let onClick = this.props.onSubClick || function(){};
         return (
             <ul className={"sub-menu-list"}>
                 {data.map((menu,i)=>{
-                    return (
-                        <li key={i} className="sub-menu-item">
-                            <Link onClick={onClick.bind(this,menu)} to={menu.path}>{menu.title}</Link>
-                        </li>
-                    )
+                    console.log(menu.children)
+                    if(menu.children && menu.children.length){
+                        return (
+                            <li key={i} className="sub-menu-item has-child-menu">
+                                <a>{menu.title}</a>
+                                {this.renderSubMenuChilds(menu.children)}
+                            </li>
+                        )
+                    }else{
+                        return (
+                            <li key={i} className="sub-menu-item">
+                                <Link onClick={onClick.bind(this,menu)} to={menu.path}>{menu.title}</Link>
+                            </li>
+                        )
+                    }
                 })}
             </ul>
         )

@@ -3,7 +3,7 @@
 * @Date:   2016-11-09 15:06:27
 * @Desc: this_is_desc
 * @Last Modified by:   pengzhen
-* @Last Modified time: 2016-11-16 11:22:32
+* @Last Modified time: 2016-11-17 17:45:17
 */
 
 'use strict';
@@ -63,6 +63,47 @@ export function regist(params,call){
     }
 }
 const menuList = [{
+    icon: "fa-bars",
+    title: "一级",
+    path: "/product",
+    children: [{
+        title: "二级菜单",
+        path: "",
+        children: [{
+            title: '三级菜单'
+        },{
+            title: '三级菜单'
+        },{
+            title: '三级菜单'
+        },{
+            title: '三级菜单'
+        }]
+    },{
+        title: "二级菜单",
+        path: "",
+        children: [{
+            title: '三级菜单'
+        },{
+            title: '三级菜单'
+        },{
+            title: '三级菜单'
+        },{
+            title: '三级菜单'
+        }]
+    },{
+        title: "二级菜单",
+        path: "",
+        children: [{
+            title: '三级菜单'
+        },{
+            title: '三级菜单'
+        },{
+            title: '三级菜单'
+        },{
+            title: '三级菜单'
+        }]
+    }]
+},{
     icon: "fa-bars",
     title: "商品",
     path: "/product",

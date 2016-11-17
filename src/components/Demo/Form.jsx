@@ -3,16 +3,24 @@
  * @Date:   2016-11-08 14:26:46
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-09 14:44:17
+ * @Last Modified time: 2016-11-17 17:00:24
  */
 
 'use strict';
 import React from 'react';
 import Form from 'common/VForm/';
 import {
+    Steps,
     Input,
     Button,
-    Checkbox
+    Checkbox,
+    message,
+    Row,
+    Col,
+    Cascader,
+    DatePicker,
+    Upload,
+    Icon,
 } from 'antd';
 const FormItem = Form.Item;
 const createForm = Form.create;

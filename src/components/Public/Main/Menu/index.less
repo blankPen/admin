@@ -2,7 +2,7 @@
 * @Author: pengzhen
 * @Date:   2016-11-05 17:09:05
 * @Last Modified by:   pengzhen
-* @Last Modified time: 2016-11-08 17:31:21
+* @Last Modified time: 2016-11-17 17:47:02
 */
 
 @import url('../../../../styles/theme.less');
@@ -70,14 +70,16 @@
         box-shadow: 2px 2px 3px #999;
         overflow-y: auto;
         transition: all .2s ease-in-out;
-        .sub-menu-item:hover a {
+        .sub-menu-item{
+            border-bottom: 1px solid #5A6070;
+        }
+        .sub-menu-item:hover {
             background: #3C4252;
         }
-        .sub-menu-item a {
+        .sub-menu-item>a {
             padding-left: 15px;
             height: 40px;
             line-height: 40px;
-            border-bottom: 1px solid #5A6070;
             display: block;
             color: #CED1DB;
             padding-bottom: 0;
@@ -87,6 +89,35 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             transition: all 0.12s ease;
+        }
+        .sub-menu-item.has-child-menu{
+            >a{
+                color: #83939e;
+            }
+            >.child-menu{
+                margin: 0;
+                padding-left: 15px;
+                .clearfix();
+                >li{
+                    float: left;
+                    width: 85px;
+                    height: auto;
+                    margin-right: 20px;
+                    line-height: 15px;
+                    margin-bottom: 10px;
+                    border-bottom: none;
+                    a{
+                        font-size: 14px;
+                        padding-bottom: 0;
+                        line-height: 15px;
+                        text-align: left;
+                        height: 100%;
+                        &:hover{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
         }
     }
 }

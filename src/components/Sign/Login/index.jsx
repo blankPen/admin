@@ -3,7 +3,7 @@
  * @Date:   2016-11-07 16:56:17
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-17 16:05:52
+ * @Last Modified time: 2016-11-17 17:06:01
  */
 
 'use strict';
@@ -72,9 +72,6 @@ class LoginForm extends React.Component {
             captchaImg: undefined,
         }
     }
-    // componentWillMount() {
-    //     this.changeCaptcha();
-    // }
     setError(err) {
         if (!err) {
             this.setState({
@@ -117,19 +114,6 @@ class LoginForm extends React.Component {
             }
         })
     }
-    // checkCaptcha=(rule,value,call)=>{
-    //     if(value == '1234'){
-    //         call();
-    //     }else{
-    //         call(new Error('验证码错误'));
-    //     }
-    // }
-    // changeCaptcha=()=>{
-    //     var captchaImg = 'http://bbc.leimingtech.com/seller/generateImage?t=' + Math.random();
-    //     this.setState({
-    //         captchaImg
-    //     });
-    // }
     render() {
 
         return (
@@ -150,16 +134,6 @@ class LoginForm extends React.Component {
                     <Icon type="lock" />
                     <Input name='password' type='password' placeholder="请输入密码" />
                 </FormItem>
-                {/*<FormItem
-                    className='form-item item-captcha'
-                    help={false}
-                >
-                    <Icon type="qrcode" />
-                    <span className="captcha-code" onClick={this.changeCaptcha}>
-                        <img src={this.state.captchaImg} alt=""/>
-                    </span>
-                    <Input name='captcha'/>
-                </FormItem>*/}
                 <div className="error-msg">{this.state.errorMsg}</div>
                 <div className="control-box">
                     <span className="remember-box">
