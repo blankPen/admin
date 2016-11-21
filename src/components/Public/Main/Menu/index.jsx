@@ -3,7 +3,7 @@
  * @Date:   2016-11-05 17:09:00
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-17 17:35:27
+ * @Last Modified time: 2016-11-21 15:03:39
  */
 
 'use strict';
@@ -54,8 +54,8 @@ export class Menu extends React.Component {
     renderSubMenuChilds(data){
         return (
             <ul className='child-menu'>
-                {data.map((menu)=>{
-                    return <li className='child-menu-item'>
+                {data.map((menu,i)=>{
+                    return <li key={i} className='child-menu-item'>
                         <Link title={menu.title} to={menu.path}>{menu.title}</Link>
                     </li>
                 })}

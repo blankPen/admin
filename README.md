@@ -113,6 +113,39 @@ Item完全继承原antd组件属性，[可在此查看](https://ant.design/compo
     ...antd其他属性
 }
 ```
+#### 已有的验证规则
+> 见文件 src/common/VForm/VForm.jsx
+变量 const METHODS = { ... }
+
+#### 如何注册验证规则及规则组
+打开文件 src/common/VForm/VForm-register.jsx
+添加代码
+
+```
+// 用户名验证
+Form.registRuleType('username',{
+    required: '账号不能为空',
+    validator: function(rule,value,call){
+        if(){
+
+    }
+    }
+})
+
+
+// 密码验证
+Form.registRuleType('password',{
+    required: '密码不能为空',
+    minLength: { value: 6,errorMsg: '密码长度不低于6位' },
+    // password: "密码格式不正确",/*(6~14位字母与数字的组合)*/
+})
+
+
+
+```
+
+
+
 
 ## Table详解
 Table组件由表格和分页器两部分组成

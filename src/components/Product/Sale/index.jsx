@@ -3,7 +3,7 @@
  * @Date:   2016-11-11 09:43:06
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-16 10:21:28
+ * @Last Modified time: 2016-11-21 15:08:04
  */
 
 'use strict';
@@ -166,7 +166,7 @@ export class SaleProduct extends React.Component {
                             ref={ref=>{this.table = ref; }}
                             pageNo={pageNo}
                             pageSize={pageSize}
-                            totalRows={totalRows}
+                            totalRows={1000}
                             dataSource={dataList}
                             searchData={this.state.searchData}
                             onLoad={this.loadData}

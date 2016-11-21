@@ -3,7 +3,7 @@
 * @Date:   2016-11-16 10:19:35
 * @Desc: this_is_desc
 * @Last Modified by:   pengzhen
-* @Last Modified time: 2016-11-21 09:42:43
+* @Last Modified time: 2016-11-21 15:12:24
 */
 
 'use strict';
@@ -74,7 +74,6 @@ export default class ProductTable extends React.Component {
             loading: true
         });
         this.props.onLoad({
-            pageNo: this.props.pageNo + 1,
             pageSize: this.props.pageSize,
             ...this.props.searchData,
             ...params

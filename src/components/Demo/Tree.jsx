@@ -3,7 +3,7 @@
  * @Date:   2016-11-20 01:12:28
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-21 09:32:49
+ * @Last Modified time: 2016-11-21 14:57:09
  */
 
 'use strict';
@@ -18,7 +18,7 @@ function mapStateToProps(state) {
 
     };
 }
-
+// 数据生成，模拟根据pid从后台请求到子节点数据
 function createData(pid){
     let newData = [];
     for (var i = 0; i < 10; i++) {
@@ -34,6 +34,7 @@ export class TreeDemo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            // 简单示例数据源
             data: [
                 { id: '1',name: 'Node 1',children: [
                     { id: '1-1', pid: '1', name: 'Node 1-1', children: [
@@ -49,6 +50,7 @@ export class TreeDemo extends React.Component {
                 ]},
                 { id: '3',name: 'Node 3',hasChild: false },
             ],
+            // 异步加载示例数据源
             asyncData: [
                 { id: '1',name: 'Node 1' },
                 { id: '2',name: 'Node 2' },
@@ -56,9 +58,11 @@ export class TreeDemo extends React.Component {
             ]
         }
     }
+    // 模拟添加节点方法
     handleAdd=(data)=>{
         alert(`添加子节点到${data.id}`);
     }
+    // 模拟删除节点方法
     handleRemove=(data)=>{
         setTimeout(()=>{
             console.log('模拟删除操作,删除结束后刷新父节点数据')
@@ -86,6 +90,7 @@ export class TreeDemo extends React.Component {
             });
         },3000);
     }
+    // 自定义渲染节点内容
     renderNodeContent=(data)=>{
         return (
             <div>
