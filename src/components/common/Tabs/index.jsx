@@ -3,7 +3,7 @@
  * @Date:   2016-11-10 09:59:44
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-17 11:05:13
+ * @Last Modified time: 2016-11-21 14:48:27
  */
 
 'use strict';
@@ -12,7 +12,9 @@ import React from 'react';
 
 export default class Tabs extends React.Component {
     static propTypes = {
-        name: React.PropTypes.string,
+        defaultActiveKey: React.PropTypes.any,
+        activeKey: React.PropTypes.any,
+        onChange: React.PropTypes.func,
     };
 
     constructor(props) {
