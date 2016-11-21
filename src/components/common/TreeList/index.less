@@ -1,0 +1,33 @@
+/*
+* @Author: pengzhen
+* @Date:   2016-11-20 01:31:06
+* @Last Modified by:   pengzhen
+* @Last Modified time: 2016-11-20 02:03:30
+*/
+.tree-list{
+    .tree-list-item{
+        border: 1px solid #ddd;
+        background: #fff;
+        position: relative;
+        padding: 0 20px;
+        line-height: 40px;
+        min-height: 40px;
+        margin: 5px 0;
+        &.has-child{
+            padding-left: 40px;
+        }
+        .expand-btn{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+        }
+        .tree-list-item-content{
+        }
+    }
+    .tree-list-child{
+        padding-left: 30px;
+    }
+}

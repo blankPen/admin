@@ -3,7 +3,7 @@
 * @Date:   2016-11-08 13:00:38
 * @Desc: this_is_desc
 * @Last Modified by:   pengzhen
-* @Last Modified time: 2016-11-17 14:44:06
+* @Last Modified time: 2016-11-21 10:37:36
 */
 
 'use strict';
@@ -60,7 +60,8 @@ VForm.Item = class extends React.Component {
         getFieldDecorator: React.PropTypes.func.isRequired,
 
         ruleType: React.PropTypes.string,
-
+        controlType: React.PropTypes.any,
+        valueType: React.PropTypes.string,
         valuePropName: React.PropTypes.string,
         initialValue: React.PropTypes.any,
         trigger: React.PropTypes.string,
@@ -87,18 +88,33 @@ VForm.Item = class extends React.Component {
         if (!Array.isArray(children)) {
             children = [children]
         }
-        return children.map((child,i)=>{
-            if(child.props.name){
-                return React.cloneElement(getFieldDecorator(
-                    child.props.name,
-                    this.getOptions(this.props)
-                )(child),{
-                    key: i
-                });
-            }else{
-                return child;
-            }
-        });
+        if(this.props.controlType){
+            return eachChildren(children,this.props.controlType,(child,i)=>{
+                if(child.props.name){
+                    return React.cloneElement(getFieldDecorator(
+                        child.props.name,
+                        this.getOptions(this.props)
+                    )(child),{
+                        key: i
+                    });
+                }else{
+                    return child;
+                }
+            })
+        }else{
+            return children.map((child,i)=>{
+                if(child.props.name){
+                    return React.cloneElement(getFieldDecorator(
+                        child.props.name,
+                        this.getOptions(this.props)
+                    )(child),{
+                        key: i
+                    });
+                }else{
+                    return child;
+                }
+            });
+        }
     }
     render(){
         let props = {...this.props};

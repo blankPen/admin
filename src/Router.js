@@ -3,7 +3,7 @@
  * @Date:   2016-10-17 19:40:58
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-17 09:33:59
+ * @Last Modified time: 2016-11-21 09:28:34
  */
 
 'use strict';
@@ -27,6 +27,8 @@ import NotFound from 'components/common/404';
 
 import DemoForm from 'components/Demo/Form';
 import DemoTabs from 'components/Demo/TabBar';
+import DemoTree from 'components/Demo/Tree';
+import DemoTable from 'components/Demo/Table';
 
 import PublicMain from 'components/Public/Main';
 import Login from 'components/Sign/Login';
@@ -71,6 +73,8 @@ export class index extends React.Component {
                         <Route path='/demo'>
                             <Route path='tabs' component={DemoTabs} />
                             <Route path='form' component={DemoForm} />
+                            <Route path='table' component={DemoTable} />
+                            <Route path='tree' component={DemoTree} />
                         </Route>
                         <Route path='/login' component={Login} />
                         <Route path='/regist' component={Regist} />

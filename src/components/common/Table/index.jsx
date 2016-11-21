@@ -3,7 +3,7 @@
  * @Date:   2016-11-07 13:09:29
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-11 17:57:00
+ * @Last Modified time: 2016-11-20 01:18:04
  */
 
 'use strict';
@@ -22,6 +22,10 @@ export default class extends React.Component {
         pagination: React.PropTypes.object,
         emptyText: React.PropTypes.node,
         options: React.PropTypes.array,
+    };
+    static defaultProps = {
+        options: [],
+        emptyText: <div className="table-empty">未找到数据</div>
     };
     constructor(props) {
         super(props);
@@ -56,10 +60,10 @@ export default class extends React.Component {
                     pagination={false}
                     rowSelection={rowSelection}
                     locale={{
-                        emptyText: emptyText || <div className="table-empty">未找到数据</div>
+                        emptyText: emptyText
                     }}
                 />
-                <div className="pagination-wrap"><Pagination {...pagination} /></div>
+                {pagination && <div className="pagination-wrap"><Pagination {...pagination} /></div>}
             </div>
         );
     }
