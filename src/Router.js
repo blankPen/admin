@@ -3,7 +3,7 @@
  * @Date:   2016-10-17 19:40:58
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-21 09:28:34
+ * @Last Modified time: 2016-11-23 09:58:45
  */
 
 'use strict';
@@ -79,7 +79,7 @@ export class index extends React.Component {
                         <Route path='/login' component={Login} />
                         <Route path='/regist' component={Regist} />
                         <Route path='/apply' component={ApplyStore} />
-                        <Route path='/' component={PublicMain}>
+                        <Route path='/' component={PublicMain} onEnter={needLogin}>
                             <IndexRoute component={Home}/>
                             <Route path='product'>
                                 <IndexRedirect to='sale' />
@@ -105,3 +105,14 @@ export default connect(
     mapStateToProps
 )(index)
 
+// 模拟用户登录权限拦截
+function needLogin(nextState,replace,callback){
+    // 验证用户是否登录
+    setTimeout(()=>{
+        if(true){ // 用户已经登录，允许访问路由
+            callback();
+        }else{ // 未登录 回到登录页
+            History.replace('/login');
+        }
+    },1000)
+}

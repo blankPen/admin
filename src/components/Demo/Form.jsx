@@ -3,7 +3,7 @@
  * @Date:   2016-11-08 14:26:46
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-21 11:38:16
+ * @Last Modified time: 2016-11-23 11:54:58
  */
 
 'use strict';
@@ -66,7 +66,9 @@ class DemoForm extends React.Component {
     }
     render(){
         const uploadProps = {
-            action: '/upload.do',
+            name: 'myfiles',
+            multiple: true,
+            action: '/seller/sellerApi/productApi/h5goodsImage',
             listType: 'picture',
             defaultFileList: [],
             onChange: ({file,fileList,event})=>{
