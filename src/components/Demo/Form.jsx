@@ -3,7 +3,7 @@
  * @Date:   2016-11-08 14:26:46
  * @Desc: this_is_desc
  * @Last Modified by:   pengzhen
- * @Last Modified time: 2016-11-23 11:54:58
+ * @Last Modified time: 2016-11-23 13:41:21
  */
 
 'use strict';
@@ -67,7 +67,7 @@ class DemoForm extends React.Component {
     render(){
         const uploadProps = {
             name: 'myfiles',
-            multiple: true,
+            multiple: true, // 是否开启多文件上传
             action: '/seller/sellerApi/productApi/h5goodsImage',
             listType: 'picture',
             defaultFileList: [],
@@ -75,6 +75,7 @@ class DemoForm extends React.Component {
                 if (file.status !== 'uploading') {
                     if(file.status == 'done'){
                         message.success('上传成功');
+                        console.log(file)
                     }else if(file.status == 'error'){
                         message.error('上传失败');
                     }
